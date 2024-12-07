@@ -2,7 +2,7 @@
 
 ![Equity_Screening_Tool.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool.jpg?raw=true)
 
-This simple Excel query tool was designed using Excel VBA macros, shapes, and Active X Controls. It queries an Azure SQL server database using encrypted username and password and query code stored in the cells of a hidden Excel sheet called *Queries*. The data set references over 2000 stocks from Public Financial Markets and can be filtered by dates indicated by section #1, Sector. It can also be filtered by Sub-Industry and Equity Ticker using ComboBoxes indicted in section #2 or by typing in the Ticker in column "B" indictated in section #4. The Dynamic ComboBoxes indicated in section #3 allow for selection of the various measures in any order that can be included or excluded. The data can also be filtered by Market Cap Size where *Small Cap* represents < 2 Billion Market Cap, *Mid Cap* represents 2 Billion to 10 Billion Market Cap, and *Large Cap* represents > 10 Billion Market Cap.
+This simple Excel query tool was designed using Excel VBA macros, shapes, and Active X Controls. It queries an Azure SQL server database using encrypted username and password and query code stored in the cells of a hidden Excel sheet called *Queries*. The data set references over 2000 stocks from Public Financial Markets and can be filtered by dates indicated by section #1, Sector. It can also be filtered by Sub-Industry and Equity Ticker using ComboBoxes indicated in section #2 or by typing in the Ticker in column "B" indicated in section #4. The Dynamic ComboBoxes indicated in section #3 allow for selection of the various measures in any order that can be included or excluded. The data can also be filtered by Market Cap Size where *Small Cap* represents < 2 Billion Market Cap, *Mid Cap* represents 2 Billion to 10 Billion Market Cap, and *Large Cap* represents > 10 Billion Market Cap.
 
 ## Encrypt and Decrypt Database Connection String Functions
 
@@ -56,7 +56,7 @@ We can use this to encrypt the connection string and store the key in cell "A1" 
     ws1.Range("A1").Value = encrypt_key
     ws1.Range("A2").Value = encrypted_connection
 
-Now, in order to decrypt the encrypted connection string, we can use the function called *XorDecrypt* which passes the encrypted string and the key.
+Now, to decrypt the encrypted connection string, we can use the function called *XorDecrypt* which passes the encrypted string and the key.
 
     Function XorDecrypt(ByVal sData As String, ByVal sKey As String) As String
         Dim i As Long 
@@ -101,13 +101,13 @@ Finally, we can create a public function *Set_Conn* in Module1 that we can call 
 
 ## Equities Sheet Query Components and Data Filtering
 
-In order to connect and query the database, we can use **Microsoft ActiveX Data Objects**. The library needs to be enabled in *Tools/References*.
+To connect and query the database, we can use **Microsoft ActiveX Data Objects**. The library needs to be enabled in *Tools/References*.
 
 ![Equity_Screening_Tool_Library.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Library.jpg?raw=true)
 
 ### 1. Date ComboBoxes
 
-The following procedure called *Update_Dates* connects the database using the *Set_Conn* function. The SQL statements for Start Dates and End Dates are stored in cells in the *Queries* sheet. query_cell_1 stores the 1st cell reference for Start Dates and query_cell_2 stores the 2nd cell reference for End Dates. Basically, Date arrays are used to store the dates that are then passed as Lists to the ComboBoxes. Finally, we cleanup and close the connections.
+The following procedure called *Update_Dates* connects the database using the *Set_Conn* function. The SQL statements for Start Dates and End Dates are stored in cells in the *Queries* sheet. query_cell_1 stores the 1st cell reference for Start Dates and query_cell_2 stores the 2nd cell reference for End Dates. Basically, Date arrays are used to store the dates that are then passed as Lists to the ComboBoxes. Finally, we clean up and close the connections.
 
 ![Equity_Screening_Tool_Dates.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Dates.jpg?raw=true)
 
@@ -193,7 +193,7 @@ The following procedure called *Update_Dates* connects the database using the *S
 
 ![Equity_Screening_Tool_Sectors.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Sectors.jpg?raw=true)
 
-The following procedures will load the Sector ComboBox, the Sub-industries ComboBox and the Equities ComboBox. The tables are related and there is a **one-to-many relationship** between *Sectors* and *Sub_industries*. Sub-Industries has a **one-to-many relationship** with *Equities*. The Sub-Industried ComboBox is updated based on what is chosen in the Sectors ComboBox and the Equities ComboBox is updated based on what is chosen in the Sub-Industries ComboBox.
+The following procedures will load the Sector ComboBox, the Sub-industries ComboBox and the Equities ComboBox. The tables are related and there is a **one-to-many relationship** between *Sectors* and *Sub_industries*. Sub-Industries has a **one-to-many relationship** with *Equities*. The Sub-Industries ComboBox is updated based on what is chosen in the Sectors ComboBox and the Equities ComboBox is updated based on what is chosen in the Sub-Industries ComboBox.
 
         ' Update the Sectors ComboBox with Sectors
         Sub Update_Sectors(query_cell As String)
@@ -481,7 +481,7 @@ The dynamic ComboBoxes in "J6" to "Q6" are initially populated by the *Update_Sc
         End Sub
 
 Finally, we combined some of the functions described above that are called to initialize the ComboBoxes within the *Workbook_Open* function so that they are called as soon as the Workbook is opened.
-The queries used are referenced in the folloiwing cells within the hidden sheet *Queries*...
+The queries used are referenced in the following cells within the hidden sheet *Queries*...
 
         *A3:* 
         SELECT Date FROM Calendar AS c
