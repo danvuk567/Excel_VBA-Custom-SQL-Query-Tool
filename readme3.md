@@ -228,5 +228,115 @@ We can sort any of the columns using the arrow shapes which calls sorting proced
     
     End Sub
 
+### 11. Clear Data
 
+![Equity_Screening_Tool_Clear_Screen.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Clear_Screen.jpg?raw=true)
+
+The eraser icon shape clears the sheet using the *Clear_Sheet* procedure.
+
+    ' Clear the whole sheet
+    Sub Clear_Sheet()
+        Dim wb1 As Workbook
+        Dim ws1 As Worksheet
+        Dim start_row As Integer
+        Dim end_row As Integer
+        Dim start_col As Integer
+        Dim end_col As Integer
+
+        Set wb1 = ThisWorkbook
+        Set ws1 = wb1.Worksheets("Equities")
+        ws1.Activate
+    
+        On Error Resume Next
+        ws1.ShowAllData
+    
+        ThisWorkbook.DisableApplication
+    
+        start_row = 8
+        start_col = 3
+        end_col = 17
+    
+        ' Look for first row that contains a blank in column start_col
+        end_row = Search_for_value(start_row, ws1.Name, start_col, "") - 1
+    
+        ' Clear the sheet
+        Clear_Section start_row, ws1.Name, end_row, start_col, end_col
+    
+        ThisWorkbook.EnableApplication
+    
+    End Sub
+
+The screen is cleared by clicking the button.
+
+![Equity_Screening_Tool_Query_Results_Clear.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Query_Results_Clear.jpg?raw=true)
+
+### 12. Show / Hide Description Columns
+
+![Equity_Screening_Tool_Query_Results2_Hide.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Query_Results2_Hide.jpg?raw=true)
+
+In order to see all the data at once, we can hide columns "E" to "G". If the *Hide Desc Cols* Option Button is clicked, it calles the *Hide_Desc_Cols* procedure. The *Show Desc Cols* Option Button is clicked, it calls the *Show_Desc_Cols* procedure.
+
+    ' If Hide Desc Cols Option button is clicked, hide the description columns E to G
+    Private Sub OptionButton_Hide_Desc_Cols_Click()
+        Hide_Desc_Cols
+    End Sub
+
+    ' Hide Description Columns E to G
+    Sub Hide_Desc_Cols()
+        Dim wb1 As Workbook
+        Dim ws1 As Worksheet
+
+        Set wb1 = ThisWorkbook
+        Set ws1 = wb1.Worksheets("Equities")
+        ws1.Activate
+    
+        If ActiveSheet.Columns("G").Hidden = False Then
+            ActiveSheet.Columns("E:G").Hidden = True
+            ActiveSheet.Shapes("Sort_Asc_Sector").Visible = False
+            ActiveSheet.Shapes("Sort_Desc_Sector").Visible = False
+            ActiveSheet.Shapes("Sort_Asc_Sub_Ind").Visible = False
+            ActiveSheet.Shapes("Sort_Desc_Sub_Ind").Visible = False
+            ActiveSheet.Shapes("Sort_Asc_Comp_Name").Visible = False
+            ActiveSheet.Shapes("Sort_Desc_Comp_Name").Visible = False
+            ActiveSheet.Shapes("Sort_Asc_Market_Cap").Visible = False
+            ActiveSheet.Shapes("Sort_Desc_Market_Cap").Visible = False
+        End If
+    
+        ws1.Range("A1").Select
+
+    End Sub
+
+    ' If Show Desc Cols Option button is clicked, show the description columns E to G
+    Private Sub OptionButton_Show_Desc_Cols_Click()
+        Show_Desc_Cols
+    End Sub
+
+    ' Show Description Columns E to G
+    Sub Show_Desc_Cols()
+        Dim wb1 As Workbook
+        Dim ws1 As Worksheet
+
+        Set wb1 = ThisWorkbook
+        Set ws1 = wb1.Worksheets("Equities")
+        ws1.Activate
+    
+        If ActiveSheet.Columns("G").Hidden = True Then
+            ActiveSheet.Columns("E:G").Hidden = False
+            ActiveSheet.Shapes("Sort_Asc_Sector").Visible = True
+            ActiveSheet.Shapes("Sort_Desc_Sector").Visible = True
+            ActiveSheet.Shapes("Sort_Asc_Sub_Ind").Visible = True
+            ActiveSheet.Shapes("Sort_Desc_Sub_Ind").Visible = True
+            ActiveSheet.Shapes("Sort_Asc_Comp_Name").Visible = True
+            ActiveSheet.Shapes("Sort_Desc_Comp_Name").Visible = True
+            ActiveSheet.Shapes("Sort_Asc_Market_Cap").Visible = True
+            ActiveSheet.Shapes("Sort_Desc_Market_Cap").Visible = True
+        End If
+    
+        ws1.Range("A1").Select
+    
+    End Sub
+
+The Description Columns were hidden by clicking the *Hide Desc Cols* Option Button.
+
+![Equity_Screening_Tool_Query_Results2_Hide.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Query_Results2_Hide.jpg?raw=true)
     
