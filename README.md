@@ -480,4 +480,4 @@ The dynamic ComboBoxes are initially populated by the *Update_Score_Fields_Equit
     
         End Sub
 
-
+Continued... [Part Two](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/readme2.md)
