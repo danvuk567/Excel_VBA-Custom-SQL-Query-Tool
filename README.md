@@ -103,13 +103,13 @@ Finally, we can create a public function *Set_Conn* in Module1 that we can call 
 
 In order to connect and query the database, we can use **Microsoft ActiveX Data Objects**. The library needs to be enabled in *Tools/References*.
 
-![Equity_Screening_Tool.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool.jpg?raw=true)
+![Equity_Screening_Tool_Library.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Library.jpg?raw=true)
 
 ### 1. Date ComboBoxes
 
 The following function called *Update_Dates* connects the database using the *Set_Conn* function. The SQL statements for Start Dates and End Dates are stored in cells in the *Queries* sheet. query_cell_1 stores the 1st cell reference for Start Dates and query_cell_2 stores the 2nd cell reference for End Dates. Basically, Date Arrays are used to store the dates that are then passed as Lists to the ComboBoxes. Finally, we cleanup and close the connections.
 
-![Equity_Screening_Tool.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool.jpg?raw=true)
+![Equity_Screening_Tool_Dates.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Dates.jpg?raw=true)
 
         ' Update the Date ComboBox with Dates
         Sub Update_Dates(query_cell_1 As String, query_cell_2 As String)
