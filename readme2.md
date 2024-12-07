@@ -43,7 +43,7 @@ If the checkbox called *CheckBox_Tickers* is checked and the certain Tickers are
 
 ### 5. Clear Tickers
 
-If the *Clear Tickers* shape is clicked, it calls the procedure *Clear_Tickers*. The procedure clears all the Tickers in the "B" column and uses the custom procedures *Search_for_value* and *Clear_Section* that have been defined in .
+If the *Clear Tickers* shape is clicked, it calls the procedure *Clear_Tickers*. The procedure clears all the Tickers in the "B" column and uses the custom procedures *Search_for_value* and *Clear_Section* that have been defined in [Excel VBA Useful Custom Functions](https://github.com/danvuk567/Excel_VBA-Useful-Custom-Functions/readme.md).
 
         ' Clear the Tickers in the B column
         Sub Clear_Tickers()
