@@ -25,6 +25,10 @@ The stop query shape calls the procedure *Cancel_Running_Query* which simply int
 
 ### 8. Query Results
 
-The current query returns the results for the *Information Technology* sector and the *Semiconductors* Sub-Industry for December 6th 2024.
+The current query returns the results for the *Information Technology* Sector and the *Semiconductors* Sub-Industry for December 6th 2024.
 
 ![Equity_Screening_Tool_Query_Results.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Query_Results.jpg?raw=true)
+
+The current query returns the results for the Tickers in column "B" for December 6th 2024.
+
+![Equity_Screening_Tool_Query_Results.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Query_Results2.jpg?raw=true)
