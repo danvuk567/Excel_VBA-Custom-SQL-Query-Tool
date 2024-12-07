@@ -40,3 +40,42 @@ If the checkbox called *CheckBox_Tickers* is checked and the certain Tickers are
         End If
        
         strSQL = strSQL & strSQL1 & " ORDER BY 1,2"
+
+### 5. Clear Tickers
+
+If the *Clear Tickers* shape is clicked, it calls the procedure *Clear_Tickers*. The procedure clears all the Tickers in the "B" column and uses the custom procedures *Search_for_value* and *Clear_Section* that have been defined in .
+
+        ' Clear the Tickers in the B column
+        Sub Clear_Tickers()
+            Dim wb1 As Workbook
+            Dim ws1 As Worksheet
+            Dim start_row As Integer
+            Dim end_row As Integer
+            Dim start_col As Integer
+            Dim end_col As Integer
+
+            Set wb1 = ThisWorkbook
+            Set ws1 = wb1.Worksheets("Equities")
+            ws1.Activate
+    
+            On Error Resume Next
+            ws1.ShowAllData
+    
+            ThisWorkbook.DisableApplication
+    
+            start_row = 8
+            start_col = 2
+            end_col = 2
+    
+            ' Look for first row that contains a blank in column start_col
+            end_row = Search_for_value(start_row, ws1.Name, start_col, "") - 1
+    
+            ' Clear column B
+            Clear_Section start_row, ws1.Name, end_row, start_col, end_col
+    
+            ThisWorkbook.EnableApplication
+
+        End Sub
+
+
+
