@@ -4,9 +4,9 @@
 
 ### 4. Ticker List
 
-![Equity_Screening_Tool_Ticker_List.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Ticker_List.jpg?raw=true)
-
 If the checkbox called *CheckBox_Tickers* is checked and the certain Tickers are typed into the "B" column, they are used to filter the Equity data to only return the data for the Tickers listed. The data is filtered by the Ticker list that is appended to the strSQL1 SQL statement within the *Get_Equity_Data* procedure. Once the query is executed, it is sorted to match the order in the "B" column by the sort order in the "R" column which is derived by using the **MATCH** Excel function. The sort order in the "R" column is visually hidden by using a white text font.
+
+![Equity_Screening_Tool_Ticker_List.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Ticker_List.jpg?raw=true)
 
         ' Use Ticker List in B columnn to query if the Tickers CheckBox is checked
         If ActiveSheet.CheckBox_Tickers.Value = True Then
