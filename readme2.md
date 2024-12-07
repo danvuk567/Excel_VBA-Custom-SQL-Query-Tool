@@ -338,7 +338,7 @@ If there are Tickers listed in the "B" column, it will sort them using the *Sort
 
         End Sub
 
-
+**Continued...** [Part Three](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/readme3.md)
 
 
 
