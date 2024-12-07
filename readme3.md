@@ -276,7 +276,7 @@ The screen is cleared by clicking the button.
 
 ### 12. Show / Hide Description Columns
 
-![Equity_Screening_Tool_Query_Results2_Hide.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Query_Results2_Hide.jpg?raw=true)
+![Equity_Screening_Tool_Hide_Show_Cols.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Hide_Show_Cols.jpg?raw=true)
 
 In order to see all the data at once, we can hide columns "E" to "G". If the *Hide Desc Cols* Option Button is clicked, it calles the *Hide_Desc_Cols* procedure. The *Show Desc Cols* Option Button is clicked, it calls the *Show_Desc_Cols* procedure.
 
