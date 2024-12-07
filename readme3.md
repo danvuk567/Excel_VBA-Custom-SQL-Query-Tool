@@ -155,4 +155,78 @@ The *Clear All Filters* checkbox rechecks the Market Cap Size checkboxes, unfilt
     
     End Sub
 
+### 10. Sort Columns
+
+![Equity_Screening_Tool_Sort.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Sort.jpg?raw=true)
+
+We can sort any of the columns using the arrow shapes which calls sorting procedures. One of the Up arrows calls the *Sort_1_Asc* procedure and the Down arrow calls the *Sort_1_Desc* procedure. They call the *Sort_Sheet* procedure to execute the sort based on parameters passed.
+
+    ' Sort by 1st Dynamic ComboBox Ascending
+    Sub Sort_1_Asc()
+        Dim wb1 As Workbook
+        Dim ws1 As Worksheet
+        Dim start_row As Integer
+        Dim end_row As Integer
+
+        Set wb1 = ThisWorkbook
+        Set ws1 = wb1.Worksheets("Equities")
+    
+        ws1.Activate
+
+        Sort_Sheet 8, "C", 10, 18, "Asc"
+    
+    End Sub
+
+    ' Sort by 1st Dynamic ComboBox Descending
+    Sub Sort_1_Desc()
+        Dim wb1 As Workbook
+        Dim ws1 As Worksheet
+        Dim start_row As Integer
+        Dim end_row As Integer
+
+        Set wb1 = ThisWorkbook
+        Set ws1 = wb1.Worksheets("Equities")
+    
+        ws1.Activate
+
+        Sort_Sheet 8, "C", 10, 18, "Desc"
+    
+    End Sub
+
+    ' Sort the sheet by curr_col column and whether sort_order is ascending or descending
+    Sub Sort_Sheet(start_row As Integer, start_col As Variant, curr_col As Integer, end_col As Integer, sort_order As String)
+        Dim wb1 As Workbook
+        Dim ws1 As Worksheet
+        Dim end_row As Integer
+
+        Set wb1 = ThisWorkbook
+        Set ws1 = wb1.Worksheets("Equities")
+    
+        ws1.Activate
+
+        ' Search for blank row to get last row
+        end_row = Search_for_value(start_row, ws1.Name, start_col, "") - 1
+    
+        ' Set up sort key by curr_col column and whether sort_order is ascending or descending
+        ws1.Sort.SortFields.Clear
+        If sort_order = "Asc" Then
+            ws1.Sort.SortFields.Add2 Key:=ws1.Range(ws1.Cells(start_row, curr_col), ws1.Cells(end_row, curr_col)) _
+            , SortOn:=xlSortOnValues, Order:=xlAscending, DataOption:=xlSortNormal
+        Else
+            ws1.Sort.SortFields.Add2 Key:=ws1.Range(ws1.Cells(start_row, curr_col), ws1.Cells(end_row, curr_col)) _
+            , SortOn:=xlSortOnValues, Order:=xlDescending, DataOption:=xlSortNormal
+        End If
+
+        With ws1.Sort
+            .SetRange ws1.Range(ws1.Cells(start_row, 2), ws1.Cells(end_row, end_col))
+            .Header = xlGuess
+            .MatchCase = False
+            .Orientation = xlTopToBottom
+            .SortMethod = xlPinYin
+            .Apply
+        End With
+    
+    End Sub
+
+
     
