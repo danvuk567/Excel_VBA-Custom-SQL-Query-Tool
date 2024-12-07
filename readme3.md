@@ -123,6 +123,10 @@ The 3 Market Cap Size checkboxes will filter the data by the "H" column using th
         Filter_Cap
     End Sub
 
+Here are the results if the data gets filtered by *Small Cap*.
+
+![Equity_Screening_Tool_Query_Results_Market_Cap.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Query_Results_Market_Cap.jpg?raw=true)
+
 The *Clear All Filters* checkbox rechecks the Market Cap Size checkboxes, unfilters the data, and sets the Sector, Sub_Industries and Equities to "All". 
 
     ' Reset all checkboxes and ComboBoxes to initial values and remove all filters
