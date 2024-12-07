@@ -163,7 +163,7 @@ The *Clear All Filters* checkbox rechecks the Market Cap Size checkboxes, unfilt
 
 ![Equity_Screening_Tool_Sort.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Sort.jpg?raw=true)
 
-We can sort any of the columns using the arrow shapes which calls sorting procedures. One of the Up arrows calls the *Sort_1_Asc* procedure and the Down arrow calls the *Sort_1_Desc* procedure. They call the *Sort_Sheet* procedure to execute the sort based on parameters passed.
+We can sort any of the columns using the arrow shapes which call sorting procedures. One of the Up arrows calls the *Sort_1_Asc* procedure and the Down arrow calls the *Sort_1_Desc* procedure. They call the *Sort_Sheet* procedure to execute the sort based on parameters passed.
 
     ' Sort by 1st Dynamic ComboBox Ascending
     Sub Sort_1_Asc()
