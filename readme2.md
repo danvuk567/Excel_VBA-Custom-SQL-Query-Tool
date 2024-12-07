@@ -195,6 +195,29 @@ The shape with the Magnify (search) icon calls the procedure *Get_Equity_Data* p
     
         End Sub
 
+The "A5" Cell in *Queries* sheet contains the following query code:
+
+        SELECT 
+               Date,
+               TRIM(Ticker_Name) AS Ticker_Name,
+               TRIM(Sector) AS Sector,
+               TRIM(Sub_Industry) AS Sub_Industry,
+               TRIM(Company_Name) AS Company_Name,
+               Market_Cap,
+               TRIM(Market_Cap_Size) AS Market_Cap_Size,
+               Exp_1Yr_Dividend_Yld,
+               Exp_1Yr_Dividend_Yld_Rank_Perc,
+               ROUND(Return_1Mth, 4) AS Return_1Mth,
+               ROUND(Return_3Mth, 4) AS Return_3Mth,
+               ROUND(Return_6Mth, 4) AS Return_6Mth,
+               ROUND(Return_1Yr, 4) AS Return_1Yr,
+               ROUND(Return_3Yr, 4) AS Return_3Yr,
+               ROUND(Return_3Yr_High, 4) AS Return_3Yr_High
+        FROM Prospect_Data
+        WHERE Date BETWEEN  
+
+The Exec_Equity_Data procedure is defined as follows:
+
         ' Execute the strSQL query and populate the rows starting from the start_row row
         Sub Exec_Equity_Data(start_row As Integer, strSQL As String)
             Dim objMyConn As ADODB.Connection
