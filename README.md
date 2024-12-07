@@ -480,4 +480,32 @@ The dynamic ComboBoxes are initially populated by the *Update_Score_Fields_Equit
     
         End Sub
 
+Finally, we combined some of the functions described above that are called to initialize the ComboBoxes within the *Workbook_Open* function so that they are called as soon as the Workbook is opened.
+The queries used are referenced in the folloiwing cells within the hidden sheet *Queries*...
+
+        *A3:* 
+        SELECT Date FROM Calendar AS c
+        WHERE EXISTS (Select 1 FROM Prospect_Data WHERE Date = c.Date)
+        ORDER BY Date;
+
+        *A4:* 
+        SELECT MAX(Date) AS Date
+        FROM Prospect_Data;
+
+        *A6:* 
+        SELECT 
+	        'All Sectors' AS Sector,
+	        1 AS Sector_Order 
+        UNION 
+        SELECT 
+	        TRIM(Description) AS Sector,
+	        2 AS Sector_Order 
+        FROM US_Sectors 
+        WHERE TRIM(Description) != 'NONE' 
+        UNION 
+        SELECT 
+        	'Other' AS Sector,
+        	3 AS Sector_Order 
+        ORDER BY 2, 1;
+
 Continued... [Part Two](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/readme2.md)
