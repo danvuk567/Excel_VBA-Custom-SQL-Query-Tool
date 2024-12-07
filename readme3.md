@@ -35,6 +35,8 @@ The current query returns the results for the Tickers in column "B" for December
 
 ### 9. Market Cap Size and Clear Filters
 
+![Equity_Screening_Tool_Checkboxes.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Checkboxes.jpg?raw=true)
+
 The 3 Market Cap Size checkboxes will filter the data by the "H" column using the procedure *Filter_Cap*.
 
     ' This procedure will filter the sheet by Market Cap Size if any of the Market Cap checkboxes are selected
@@ -120,3 +122,37 @@ The 3 Market Cap Size checkboxes will filter the data by the "H" column using th
     Private Sub CheckBox_LargeCap_Change()
         Filter_Cap
     End Sub
+
+The *Clear All Filters* checkbox rechecks the Market Cap Size checkboxes, unfilters the data, and sets the Sector, Sub_Industries and Equities to "All". 
+
+    ' Reset all checkboxes and ComboBoxes to initial values and remove all filters
+    Private Sub CheckBox_Clear_All_Filters_Change()
+        Dim wb1 As Workbook
+        Dim ws1 As Worksheet
+
+        Set wb1 = ThisWorkbook
+        Set ws1 = wb1.Worksheets("Equities")
+        ws1.Activate
+
+        On Error Resume Next
+
+        ' If the Clear All Filters CheckBox is checked
+        If ActiveSheet.OLEObjects("CheckBox_Clear_All_Filters").Object.Value = True Then
+            ' Set the checkboxes for Market Cap sizes to true
+            ActiveSheet.OLEObjects("CheckBox_SmallCap").Object.Value = True
+            ActiveSheet.OLEObjects("CheckBox_MidCap").Object.Value = True
+            ActiveSheet.OLEObjects("CheckBox_LargeCap").Object.Value = True
+        
+            ' Set initial values for the Sector, Sub-Industries, and Equities ComboBoxes
+            ActiveSheet.ComboBox_Sectors.Value = "All Sectors"
+            ActiveSheet.ComboBox_Sub_Industries = "All Sub-Industries"
+            ActiveSheet.ComboBox_Equities = "All Equities"
+ 
+            ActiveSheet.ShowAllData
+        End If
+
+        ws1.Range("A1").Select
+    
+    End Sub
+
+    
