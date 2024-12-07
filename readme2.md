@@ -81,7 +81,7 @@ If the *Clear Tickers* shape is clicked, it calls the procedure *Clear_Tickers*.
 
 ### 6. Execute the Query
 
-![Equity_Screening_Tool_Ticker_List.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Ticker_List.jpg?raw=true)
+![Equity_Screening_Tool_Query.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Query.jpg?raw=true)
 
 The shape with the Magnify (search) icon calls the procedure *Get_Equity_Data* procedure which filters the SQL statement strSQL based on the Sector, Sub-Industry, Equity ComboBoxes, and Ticker list in column "B". It then calls the procedure *Exec_Equity_Data start_row*. 
 If there are Tickers listed in the "B" column, it will sort them using the *Sort_Tickers* procedure. The data will populate columns "C" to "H" and any data related to what is selected in the dynamic ComboBox in "J6" to "Q6".
