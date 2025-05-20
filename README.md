@@ -507,5 +507,6 @@ The queries used are referenced in the following cells within the hidden sheet *
         	'Other' AS Sector,
         	3 AS Sector_Order 
         ORDER BY 2, 1;
+<br/>
 
-**Continued...** [Part Two](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/readme2.md)
+:arrow_right: **Continued...** [Part Two](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/readme2.md)
