@@ -342,5 +342,7 @@ In order to see all the data at once, we can hide columns "E" to "G". If the *Hi
 
 The Description Columns were hidden by clicking the *Hide Desc Cols* Option Button.
 
-![Equity_Screening_Tool_Query_Results2_Hide.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Query_Results2_Hide.jpg?raw=true)
+![Equity_Screening_Tool_Query_Results2_Hide.jpg](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/images/Equity_Screening_Tool_Query_Results2_Hide.jpg?raw=true)<br/><br/>
+
+:arrow_right: **Back to:** [Main Page](https://github.com/danvuk567)
     
