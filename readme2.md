@@ -370,8 +370,9 @@ The Exec_Equity_Data procedure is defined as follows:
         Private Sub ComboBox_Sub_Industries_Change()
             Update_Equities "A8"
         End Sub
+<br/>
 
-**Continued...** [Part Three](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/readme3.md)
+**:arrow_right: Continued...** [Part Three](https://github.com/danvuk567/Excel_VBA-Custom-SQL-Query-Tool/blob/main/readme3.md)
 
 
 
